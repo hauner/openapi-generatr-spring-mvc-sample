@@ -1,0 +1,18 @@
+openapi: 3.0.2
+info:
+  title: sample api for openapi-generatr-spring
+  version: 1.0.0
+
+paths:
+  /ping:
+
+    get:
+      summary: returns a single "pong" string.
+      description: very simple sample endpoint
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: "pong"
