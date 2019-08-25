@@ -7,6 +7,8 @@ paths:
   /ping:
 
     get:
+      tags:
+        - ping
       summary: returns a single "pong" string.
       description: very simple sample endpoint
       responses:
