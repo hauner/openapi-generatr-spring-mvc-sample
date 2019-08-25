@@ -49,3 +49,15 @@ generatrSpring {
     // show warnings from the open api parser.
     showWarnings = true
 }
+
+sourceSets {
+    main {
+        java {
+            // add generated files
+            srcDir 'build/openapi'
+        }
+    }
+}
+
+// generate api before compiling
+classes.dependsOn ('generateSpringApi')
