@@ -1,7 +1,19 @@
+buildscript {
+  dependencies {
+    // add generatr-spring
+    classpath "com.github.hauner.openapi:openapi-generatr-spring"
+  }
+}
+
 plugins {
     id 'org.springframework.boot' version '2.1.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+
+    // add generatr-gradle plugin
+    // note: currently this works only inside the openapi-generatr-dev project because the
+    // plugin is not yet published to https://plugins.gradle.org/
+    id 'com.github.hauner.openapi.openapiGeneratr' version '0.1-SNAPSHOT'
 }
 
 group = 'com.github.hauner'
