@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-package com.github.hauner.openapi;
+package com.github.hauner.openapi
 
-import com.github.hauner.openapi.api.PingApi;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.web.client.TestRestTemplate
+import spock.lang.Specification
 
-/**
- * Implementation of the ping api defined in src/api/openapi.yaml.
- *
- * @author Martin Hauner
- */
-@Controller
-public class PingController implements PingApi {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class PingControllerSpec extends Specification {
 
-    @Override
-    public ResponseEntity<String> getPing () {
-        return ResponseEntity.ok ("pong");
+    @Autowired
+    TestRestTemplate restTemplate
+
+    void "ping returns pong" () {
+        expect:
+        restTemplate.getForEntity ('/ping', String).body == 'pong'
     }
 
 }

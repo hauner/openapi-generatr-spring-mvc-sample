@@ -16,21 +16,21 @@
 
 package com.github.hauner.openapi;
 
-import com.github.hauner.openapi.api.PingApi;
+import com.github.hauner.openapi.api.EchoApi;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 /**
- * Implementation of the ping api defined in src/api/openapi.yaml.
+ * Implementation of the echo api defined in src/api/openapi.yaml.
  *
  * @author Martin Hauner
  */
 @Controller
-public class PingController implements PingApi {
+public class EchoController implements EchoApi {
 
     @Override
-    public ResponseEntity<String> getPing () {
-        return ResponseEntity.ok ("pong");
+    public ResponseEntity<String> getEcho (String source) {
+        return ResponseEntity.ok (source);
     }
 
 }

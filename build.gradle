@@ -1,19 +1,25 @@
 buildscript {
-  dependencies {
-    // add generatr-spring
-    classpath "com.github.hauner.openapi:openapi-generatr-spring"
-  }
+    repositories {
+        maven {
+            url "https://dl.bintray.com/hauner/openapi-generatr"
+        }
+    }
+
+    dependencies {
+        // add generatr-spring
+        classpath "com.github.hauner.openapi:openapi-generatr-spring"
+    }
 }
 
 plugins {
     id 'org.springframework.boot' version '2.1.7.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
+    id 'groovy'
+    id 'org.unbroken-dome.test-sets' version '2.1.1'
 
     // add generatr-gradle plugin
-    // note: currently this works only inside the openapi-generatr-dev project because the
-    // plugin is not yet published to https://plugins.gradle.org/
-    id 'com.github.hauner.openapi.openapiGeneratr' version '0.1-SNAPSHOT'
+    id 'com.github.hauner.openapi-generatr' version '1.0.0.B2'
 }
 
 group = 'com.github.hauner'
@@ -24,13 +30,21 @@ repositories {
     mavenCentral ()
 }
 
+testSets {
+    testInt
+}
+
+check.dependsOn testInt
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+    testImplementation 'org.spockframework:spock-spring:1.3-groovy-2.5'
 }
 
 // options of openapi-generatr-spring, this maps directly on the options class of the generatr.
-// In this case: com.github.hauner.openapi.spring.generatr.ApiOptions
+// In this case: com.github.hauner.openapi.spring.generatr.SpringGeneratrOptions
 generatrSpring {
     // the path to the open api yaml file.
     apiPath = "$projectDir/src/api/openapi.yaml"
@@ -38,6 +52,10 @@ generatrSpring {
     // the destination folder for generating interfaces & models. This is the parent of the
     // {packageName} folder tree.
     targetDir = "$projectDir/build/openapi"
+
+     // either a type mapping yaml as string or a file name to a type mapping yaml. Note that the yaml
+     // file name must end with either {@code .yaml} or {@code .yml}.
+     // typeMappings = "$projectDir/mapping.yaml"
 
     // the root package of the generated interfaces/model. The package folder tree will be created
     // inside {targetDir}. Interfaces and models will be placed into the "api" and "model"
@@ -60,4 +78,4 @@ sourceSets {
 }
 
 // generate api before compiling
-classes.dependsOn ('generateSpringApi')
+compileJava.dependsOn ('generateSpring')
