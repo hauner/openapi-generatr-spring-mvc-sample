@@ -7,7 +7,7 @@ buildscript {
 
     dependencies {
         // add generatr-spring
-        classpath "com.github.hauner.openapi:openapi-generatr-spring"
+        classpath "com.github.hauner.openapi:openapi-generatr-spring:1.0.0.A3"
     }
 }
 
