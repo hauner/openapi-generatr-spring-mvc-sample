@@ -25,6 +25,7 @@ dependencies {
     // 'openapiGeneratr' is a custom configuration that is used by the gradle plugin. It allows
     // to add multiple generatrs.
     openapiGeneratr 'com.github.hauner.openapi:openapi-generatr-spring:1.0.0.M4'
+    openapiGeneratr 'com.github.hauner.openapi:openapi-generatr-json:1.0.0.M2'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -61,6 +62,10 @@ openapiGeneratr {
         showWarnings true
     }
 
+    json {
+        targetDir "$buildDir/json"
+    }
+
 }
 
 // add the targetDir of the generatr as additional source folder to java.
@@ -70,10 +75,15 @@ sourceSets {
             // add generated files
             srcDir 'build/openapi'
         }
+
+        resources {
+            srcDir "$buildDir/json"
+        }
     }
 }
 
 // generate api before compiling
 compileJava.dependsOn ('generateSpring')
+processResources.dependsOn ('generateJson')
 
 check.dependsOn testInt
