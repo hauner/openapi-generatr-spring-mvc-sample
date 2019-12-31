@@ -6,7 +6,7 @@ plugins {
     id 'org.unbroken-dome.test-sets' version '2.1.1'
 
     // add generatr-gradle plugin
-    id 'com.github.hauner.openapi-generatr' version '1.0.0.M3'
+    id 'com.github.hauner.openapi-generatr' version '1.0.0.M4'
 }
 
 group = 'com.github.hauner'
