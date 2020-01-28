@@ -24,7 +24,7 @@ testSets {
 dependencies {
     // 'openapiGeneratr' is a custom configuration that is used by the gradle plugin. It allows
     // to add multiple generatrs.
-    openapiGeneratr 'com.github.hauner.openapi:openapi-generatr-spring:1.0.0.M4'
+    openapiGeneratr 'com.github.hauner.openapi:openapi-generatr-spring:1.0.0.M7'
     openapiGeneratr 'com.github.hauner.openapi:openapi-generatr-json:1.0.0.M2'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -44,19 +44,12 @@ openapiGeneratr {
     // (in this case "generateSpring") to run the generatr.
     spring {
         // the destination folder for generating interfaces & models. This is the parent of the
-        // {packageName} folder tree.
+        // {package-name} folder tree configured in the mapping file.
         targetDir "$projectDir/build/openapi"
 
-        // either a type mapping yaml as string or a file name to a type mapping yaml. Note that
-        // the yaml file name must end with either {@code .yaml} or {@code .yml}.
-        // typeMappings = "$projectDir/mapping.yaml"
-
-        // the root package of the generated interfaces/model. The package folder tree will be
-        // created inside {targetDir}. Interfaces and models will be placed into the "api" and
-        // "model" subpackages of packageName:
-        // - interfaces => "${packageName}.api"
-        // - models => "${packageName}.model"
-        packageName "com.github.hauner.openapi"
+        // file name of the mapping yaml configuration file. Note that the yaml file name must end
+        // with either {@code .yaml} or {@code .yml}.
+        mapping = "$projectDir/openapi-generatr-spring.yaml"
 
         // show warnings from the open api parser.
         showWarnings true
