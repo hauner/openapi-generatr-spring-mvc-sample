@@ -21,6 +21,14 @@ testSets {
     testInt
 }
 
+dependencyManagement {
+    openapiGeneratr {
+          dependencies {
+              dependency 'com.fasterxml.jackson.core:jackson-core:2.10.2'
+          }
+     }
+}
+
 dependencies {
     // 'openapiGeneratr' is a custom configuration that is used by the gradle plugin. It allows
     // to add multiple generatrs.
