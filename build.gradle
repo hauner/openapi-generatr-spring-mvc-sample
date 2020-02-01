@@ -6,7 +6,7 @@ plugins {
     id 'org.unbroken-dome.test-sets' version '2.1.1'
 
     // add generatr-gradle plugin
-    id 'com.github.hauner.openapi-generatr' version '1.0.0.M4'
+    id 'com.github.hauner.openapi-generatr' version '1.0.0.M5'
 }
 
 group = 'com.github.hauner'
@@ -21,49 +21,49 @@ testSets {
     testInt
 }
 
-dependencyManagement {
-    openapiGeneratr {
-          dependencies {
-              dependency 'com.fasterxml.jackson.core:jackson-core:2.10.2'
-          }
-     }
-}
-
 dependencies {
-    // 'openapiGeneratr' is a custom configuration that is used by the gradle plugin. It allows
-    // to add multiple generatrs.
-    openapiGeneratr 'com.github.hauner.openapi:openapi-generatr-spring:1.0.0.M7'
-    openapiGeneratr 'com.github.hauner.openapi:openapi-generatr-json:1.0.0.M2'
-
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
     testImplementation 'org.spockframework:spock-spring:1.3-groovy-2.5'
 }
 
-// configure the openapi-generatr-spring inside the 'openapiGeneratr' dsl block by adding a 'spring'
-// (i.e the generatr name) block with the options for the generatr.
+
+// configure an openapi-generatr inside the 'openapiGeneratr' configuration by adding a nested
+// configuration with the name of the generatr and its options inside it.
+//
+// ... using 'spring' and 'json'.
 openapiGeneratr {
 
-    // the path to the open api yaml file.
+    // the path to the open api yaml file. Usually the same for all generatrs.
     apiPath "${projectDir}/src/api/openapi.yaml"
 
-    // adding a generatr block will configure a gradle task with name "generate${name of generator}"
-    // (in this case "generateSpring") to run the generatr.
+    // based on the name of a generatr configuration the plugin creates a gradle task with name
+    // "generate${name of generator}"  (in this case "generateSpring") to run the generatr.
     spring {
+        // the spring generatr dependency
+        generatr 'com.github.hauner.openapi:openapi-generatr-spring:1.0.0.M7'
+
+        // setting api path inside a generatr configuration override the one at the top.
+        // apiPath "${projectDir}/src/api/openapi.yaml"
+
         // the destination folder for generating interfaces & models. This is the parent of the
         // {package-name} folder tree configured in the mapping file.
         targetDir "$projectDir/build/openapi"
 
         // file name of the mapping yaml configuration file. Note that the yaml file name must end
         // with either {@code .yaml} or {@code .yml}.
-        mapping = "$projectDir/openapi-generatr-spring.yaml"
+        mapping "$projectDir/openapi-generatr-spring.yaml"
 
         // show warnings from the open api parser.
         showWarnings true
     }
 
+    // applying the rule described above the task to run this one is "generateJson".
     json {
+        // the json generatr dependency
+        generatr 'com.github.hauner.openapi:openapi-generatr-json:1.0.0.M2'
+
         targetDir "$buildDir/json"
     }
 
