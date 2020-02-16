@@ -1,5 +1,5 @@
-rootProject.name = 'openapi-generatr-spring-mvc-sample'
+rootProject.name = 'openapi-processor-spring-mvc-sample'
 
-//includeBuild '../openapi-generatr-gradle'
-//includeBuild '../openapi-generatr-spring'
-//includeBuild '../openapi-generatr-json'
+//includeBuild '../openapi-processor-gradle'
+//includeBuild '../openapi-processor-spring'
+//includeBuild '../openapi-processor-json'

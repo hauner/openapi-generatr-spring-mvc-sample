@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  title: sample api for openapi-generatr-spring
+  title: openapi-processor-spring sample api
   version: 1.0.0
 
 paths:
