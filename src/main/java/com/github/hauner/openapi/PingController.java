@@ -18,14 +18,14 @@ package com.github.hauner.openapi;
 
 import com.github.hauner.openapi.api.PingApi;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Implementation of the ping api defined in src/api/openapi.yaml.
  *
  * @author Martin Hauner
  */
-@Controller
+@RestController
 public class PingController implements PingApi {
 
     @Override
