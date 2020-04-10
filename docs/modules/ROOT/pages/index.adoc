@@ -11,7 +11,7 @@
 
 This is a simple Spring Boot (gradle) project that is using
 
-* xref:oap-spring:ROOT:index.adoc[openapi-processor-spring] to
+* xref:spring:ROOT:index.adoc[openapi-processor-spring] to
 generate java interfaces for the api defined in an openapi.yaml file
 * link:{oap-json}[openapi-processor-json] to convert the openapi yaml to json format
 * link:{oap-gradle}[openapi-processor-gradle] plugin to run both processors
