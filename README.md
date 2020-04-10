@@ -3,8 +3,8 @@
 This is a simple Spring Boot (gradle) project that is using 
 * [openapi-processor-spring][oap-spring] to
 generate java interfaces for the api defined in an openapi.yaml file
-* the [openapi-processor-json][oap-json] to convert the openapi yaml to json format
-* and the [openapi-processor-gradle plugin][oap-gradle] to run both processors.
+* [openapi-processor-json][oap-json] to convert the openapi yaml to json format
+* [openapi-processor-gradle plugin][oap-gradle] to run both processors
 
 The purpose of the sample is to show the setup of the gradle plugin and the processors.
 
