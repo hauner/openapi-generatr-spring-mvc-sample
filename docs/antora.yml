@@ -1,5 +1,5 @@
-name: openapi-processor-spring-mvc-sample
-title: openapi-processor-spring-mvc-sample
+name: spring-mvc-sample
+title: oap-spring-mvc-sample
 version: master
 nav:
 - modules/ROOT/nav.adoc
