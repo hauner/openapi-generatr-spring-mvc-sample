@@ -42,7 +42,7 @@ openapiProcessor {
     // "process${name of processor}"  (in this case "processSpring") to run the processor.
     spring {
         // the spring processor dependency
-        processor 'com.github.hauner.openapi:openapi-processor-spring:1.0.0.M9'
+        processor 'com.github.hauner.openapi:openapi-processor-spring:1.0.0.M12'
 
         // setting api path inside a processor configuration overrides the one at the top.
         // apiPath "${projectDir}/src/api/openapi.yaml"
