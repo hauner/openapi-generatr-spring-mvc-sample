@@ -1,6 +1,6 @@
 = OpenAPI Spring MVC Sample
 :page-layout: default
-:oap-github:https://github.com/hauner/openapi-processor-spring-mvc-sample
+:oap-github: https://github.com/hauner/openapi-processor-spring-mvc-sample
 
 //
 // content
