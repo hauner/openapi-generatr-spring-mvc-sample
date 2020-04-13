@@ -8,18 +8,12 @@ generate java interfaces for the api defined in an openapi.yaml file
 
 The purpose of the sample is to show the setup of the gradle plugin and the processors.
 
-## Endpoints
+# Documentation 
 
-the sample has a few simple endpoints described with OpenAPI in `src/api`. 
+See [here][oap-docs].
 
-### ping
 
-    curl http://localhost:8080/ping 
-
-### echo
-
-    curl http://localhost:8080/echo?source=foo 
-
-[oap-spring]: https://hauner.github.io/openapi-processor-spring/
-[oap-json]: https://hauner.github.io/openapi-processor-json/
-[oap-gradle]: https://github.com/hauner/openapi-processor-gradle
+[oap-docs]: https://hauner.github.com/openapi-processor/spring-mvc-sample/index.html
+[oap-spring]: https://hauner.github.com/openapi-processor/spring/current/index.html
+[oap-json]: https://hauner.github.com/openapi-processor/json/current/index.html
+[oap-gradle]: https://hauner.github.com/openapi-processor/gradle/current/index.html
