@@ -1,3 +1,5 @@
+openapi-processor-mapping: v2
+
 options:
   # the root package of the generated interfaces/model. The package folder tree will be created
   # inside {targetDir} configured in the build.gradle file. The generated interfaces and models
