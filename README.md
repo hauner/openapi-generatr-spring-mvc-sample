@@ -13,7 +13,7 @@ The purpose of the sample is to show the setup of the gradle plugin and the proc
 See [here][oap-docs].
 
 
-[oap-docs]: https://hauner.github.com/openapi-processor/spring-mvc-sample/index.html
-[oap-spring]: https://hauner.github.com/openapi-processor/spring/current/index.html
-[oap-json]: https://hauner.github.com/openapi-processor/json/current/index.html
-[oap-gradle]: https://hauner.github.com/openapi-processor/gradle/current/index.html
+[oap-docs]: https://docs.openapiprocessor.io/spring-mvc-sample
+[oap-spring]: https://docs.openapiprocessor.io/spring
+[oap-json]: https://docs.openapiprocessor.io/json
+[oap-gradle]: https://docs.openapiprocessor.io/gradle
