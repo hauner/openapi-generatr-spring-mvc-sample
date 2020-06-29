@@ -8,7 +8,7 @@ generate java interfaces for the api defined in an openapi.yaml file
 
 The purpose of the sample is to show the setup of the gradle plugin and the processors.
 
-# Documentation 
+# documentation 
 
 See [here][oap-docs].
 

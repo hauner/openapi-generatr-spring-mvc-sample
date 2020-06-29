@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 the original authors
+ * Copyright 2019-2020 the original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-package com.github.hauner.openapi;
+package io.openapiprocessor;
 
-import com.github.hauner.openapi.api.PingApi;
-import org.springframework.http.ResponseEntity;
+import io.openapiprocessor.api.EchoApi;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Implementation of the ping api defined in src/api/openapi.yaml.
+ * Implementation of the echo api defined in src/api/openapi.yaml.
  *
  * @author Martin Hauner
  */
 @RestController
-public class PingController implements PingApi {
+public class EchoController implements EchoApi {
 
     @Override
-    public ResponseEntity<String> getPing () {
-        return ResponseEntity.ok ("pong");
+    public String getEcho (String source) {
+        return source;
     }
 
 }
