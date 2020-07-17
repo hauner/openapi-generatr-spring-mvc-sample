@@ -1,4 +1,6 @@
 # openapi-processor-spring (mvc) sample project
+
+This repository is obsolete. The sample has moved to the samples project [spring-mvc][oap-samples].
  
 This is a simple Spring Boot (gradle) project that is using 
 * [openapi-processor-spring][oap-spring] to
@@ -17,3 +19,4 @@ See [here][oap-docs].
 [oap-spring]: https://docs.openapiprocessor.io/spring
 [oap-json]: https://docs.openapiprocessor.io/json
 [oap-gradle]: https://docs.openapiprocessor.io/gradle
+[oap-samples]: https://github.com/openapi-processor/openapi-processor-samples/tree/master/samples/spring-mvc
